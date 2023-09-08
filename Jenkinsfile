@@ -4,8 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Pipeline build started...'
-		sh 'git clone https://github.com/Shinushining/react-tetris.git'
 		dir('./react-tetris'){
+			sh 'git pull'
 			sh 'npm install'
 			sh 'npm run build'
 		}
@@ -59,11 +59,5 @@ pipeline {
                 }
             }
         }
-	post{
-		always {
-			echo 'Cleaning...'
-            		sh 'rm -rf ./tetris-react'
-       		}
-	}
     }
 }
