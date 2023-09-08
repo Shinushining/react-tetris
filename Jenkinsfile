@@ -17,9 +17,9 @@ pipeline {
                 }
                 failure {
                     echo 'FAIL'
-                    emailext body: "Pipeline build failed.",
-                                     subject: "Pipeline failed",
-                                     to: "luczak.roza@gmail.com"
+		    mail to: "luczak.roza@gmail.com",
+		    subject: "Pipeline failed",
+                    body: "Pipeline build failed."
                 }
             }
         }
@@ -36,9 +36,9 @@ pipeline {
                 }
                 failure {
                     echo 'FAIL'
-                    emailext body: "Pipeline tests failed.",
-                                     subject: "Pipeline failed",
-                                     to: "luczak.roza@gmail.com"
+		    mail to: "luczak.roza@gmail.com",
+		    subject: "Pipeline failed",
+                    body: "Pipeline tests failed."
                 }
             }
         }
@@ -53,9 +53,9 @@ pipeline {
                 }
                 failure {
                     echo 'FAIL'
-                    emailext body: "Pipeline deploy failed.",
-                                     subject: "Pipeline failed",
-                                     to: "luczak.roza@gmail.com"
+		    mail to: "luczak.roza@gmail.com",
+		    subject: "Pipeline failed",
+                    body: "Pipeline deploy failed."
                 }
             }
         }
