@@ -4,8 +4,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Pipeline build started...'
-		sh 'npm install'
-		sh 'npm run build'
+		dir(react-tetris){
+			sh 'git pull'
+			sh 'npm install'
+			sh 'npm run build'
+		}
+		
             }
             post {
                 success {
@@ -22,7 +26,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Pipeline testing started...'
-                sh 'npm test'
+		dir(react-tetris){
+                	sh 'npm test'
+		}
             }
             post {
                 success {
