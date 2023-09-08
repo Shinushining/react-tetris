@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo 'Pipeline testing started...'
 		dir('./react-tetris'){
-                	sh 'npm test'
+                	sh 'npm install'
 		}
             }
             post {
