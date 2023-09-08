@@ -8,19 +8,14 @@ pipeline {
 		sh 'npm run build'
             }
             post {
-                always{
-                    archiveArtifacts(artifacts: 'devops/*.txt', fingerprint: true, followSymlinks: false)
-                }
                 success {
                     echo 'SUCCESS'
                 }
                 failure {
                     echo 'FAIL'
-                    emailext body: "Pipeline build failed. Check the artifacts for details.",
+                    emailext body: "Pipeline build failed.",
                                      subject: "Pipeline failed",
-                                     to: "luczak.roza@gmail.com",
-                                     attachLog: true,
-                                     attachmentsPattern: 'devops/*.txt'
+                                     to: "luczak.roza@gmail.com"
                 }
             }
         }
@@ -30,19 +25,14 @@ pipeline {
                 sh 'npm test'
             }
             post {
-                always{
-                    archiveArtifacts(artifacts: 'devops/*.txt', fingerprint: true, followSymlinks: false)
-                }
                 success {
                     echo 'SUCCESS'
                 }
                 failure {
                     echo 'FAIL'
-                    emailext body: "Pipeline tests failed. Check the artifacts for details.",
+                    emailext body: "Pipeline tests failed.",
                                      subject: "Pipeline failed",
-                                     to: "luczak.roza@gmail.com",
-                                     attachLog: true,
-                                     attachmentsPattern: 'devops/*.txt'
+                                     to: "luczak.roza@gmail.com"
                 }
             }
         }
@@ -52,19 +42,14 @@ pipeline {
                 sh 'docker-compose up --detach'
             }
             post {
-                always{
-                    archiveArtifacts(artifacts: 'devops/*.txt', fingerprint: true, followSymlinks: false)
-                }
                 success {
                     echo 'SUCCESS'
                 }
                 failure {
                     echo 'FAIL'
-                    emailext body: "Pipeline deploy failed. Check the artifacts for details.",
+                    emailext body: "Pipeline deploy failed.",
                                      subject: "Pipeline failed",
-                                     to: "luczak.roza@gmail.com",
-                                     attachLog: true,
-                                     attachmentsPattern: 'devops/*.txt'
+                                     to: "luczak.roza@gmail.com"
                 }
             }
         }
