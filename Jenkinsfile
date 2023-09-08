@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Pipeline build started...'
 		dir('./react-tetris'){
-			sh 'git pull'
+			sh 'git pull origin master'
 			sh 'npm install'
 			sh 'npm run build'
 		}
