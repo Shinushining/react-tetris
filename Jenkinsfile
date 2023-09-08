@@ -45,7 +45,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Pipeline deployment started...'
-                sh 'docker-compose up --detach'
+		sh 'npm run build'
             }
             post {
                 success {
