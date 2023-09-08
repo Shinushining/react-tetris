@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Pipeline build started...'
-		dir(./react-tetris){
+		dir('/react-tetris'){
 			sh 'git pull'
 			sh 'npm install'
 			sh 'npm run build'
@@ -26,7 +26,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Pipeline testing started...'
-		dir(./react-tetris){
+		dir('/react-tetris'){
                 	sh 'npm test'
 		}
             }
