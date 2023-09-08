@@ -57,10 +57,13 @@ pipeline {
                                      subject: "Pipeline failed",
                                      to: "luczak.roza@gmail.com"
                 }
-		always {  
-            		sh 'rm -rf ./tetris-react'
-        	}
+		
             }
         }
+	post{
+		always {  
+            		sh 'rm -rf ./tetris-react'
+       		}
+	}
     }
 }
