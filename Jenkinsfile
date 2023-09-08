@@ -61,7 +61,8 @@ pipeline {
             }
         }
 	post{
-		always {  
+		always {
+			echo 'Cleaning...'
             		sh 'rm -rf ./tetris-react'
        		}
 	}
