@@ -4,7 +4,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Pipeline build started...'
-		sh 'git clone https://github.com/Shinushining/react-tetris.git'
 		sh 'npm install'
 		sh 'npm run build'
             }
