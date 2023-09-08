@@ -57,7 +57,6 @@ pipeline {
                                      subject: "Pipeline failed",
                                      to: "luczak.roza@gmail.com"
                 }
-		
             }
         }
 	post{
